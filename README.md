@@ -1,36 +1,86 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 📦 Project Architecture
 
-## Getting Started
+Структура проекта организована по модульному принципу.
+Это позволяет разделить UI, бизнес-логику, конфигурацию и утилиты, что делает код более поддерживаемым и масштабируемым.
 
-First, run the development server:
+twitter/
+│
+├ public/                 # Статические файлы (иконки, изображения)
+│
+├ src/                    # Основной исходный код приложения
+│
+│ ├ app/                  # Роутинг и страницы Next.js (App Router)
+│ │ ├ page.tsx            # Главная страница
+│ │ ├ layout.tsx          # Основной layout приложения
+│ │
+│ ├ components/           # UI компоненты интерфейса
+│ │ ├ Tweet
+│ │ ├ Sidebar
+│ │ └ PostForm
+│ │
+│ ├ shared/               # Общие ресурсы приложения
+│ │ ├ ui/                 # переиспользуемые UI элементы
+│ │ ├ hooks/              # кастомные React hooks
+│ │ └ types/              # TypeScript типы
+│ │
+│ ├ config/               # Конфигурация приложения
+│ │ ├ api.ts              # настройки API
+│ │ ├ routes.ts           # список маршрутов
+│ │ └ constants.ts        # глобальные константы
+│ │
+│ ├ lib/                  # Утилиты и вспомогательные функции
+│ │ ├ utils.ts
+│ │ ├ fetcher.ts
+│ │ └ helpers.ts
+│ │
+│ ├ server-actions/       # Серверные действия (Next.js Server Actions)
+│ │ ├ createTweet.ts
+│ │ ├ deleteTweet.ts
+│ │ └ auth.ts
+│ │
+│ ├ assets/               # Изображения, иконки, медиа
+│ │
+│ └ styles/               # Глобальные стили
+│
+├ package.json            # Зависимости и npm scripts
+├ .gitignore              # Игнорируемые Git файлы
+└ README.md               # Документация проекта
+🚀 Getting Started
 
-```bash
+*Это проект на Next.js, созданный с помощью create-next-app.*
+
+## Установка зависимостей
+npm install
+Запуск development сервера
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+или
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+`yarn dev`
+`pnpm dev`
+`bun dev`
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### После запуска откройте в браузере:
 
-## Learn More
+http://localhost:3000
+✏️ Development
 
-To learn more about Next.js, take a look at the following resources:
+*Главная страница проекта находится в:*
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+src/app/page.tsx
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Next.js автоматически перезагружает страницу при изменении файлов.
 
-## Deploy on Vercel
+⚡ Features Used
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+#### Проект использует возможности Next.js App Router:
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+⚡ Server Components
+
+⚡ Server Actions
+
+⚡ оптимизацию шрифтов через next/font
+
+⚡ модульную архитектуру
+
+Шрифт Geist автоматически оптимизируется с помощью Next.js.
